@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	//Dealing with the length of arguments error.
 	if len(os.Args) < 2 {
 		fmt.Println("Arguments less than required")
 	} else if len(os.Args) > 2 {
@@ -18,9 +19,9 @@ func main() {
 
 	arguments := os.Args[1]
 
-	if arguments == "" {
+	if arguments == "" { //if arguments is empty, nothing is printed and the program just returns
 		return
-	} else if arguments == "\\n" || arguments == "\\t" {
+	} else if arguments == "\\n" || arguments == "\\t" { // newline is printed in the event of "\\n" or "\\t" as the arguments
 		fmt.Print("\n")
 		return
 	}
@@ -38,12 +39,11 @@ func main() {
 		lines = append(lines, scaner.Text())
 	}
 
-	// scanner := strings.Split(string(inputfile), "\n")
 
-	words := strings.Split(arguments, "\\n")
+	words := strings.Split(arguments, "\\n") // splitting the arguments every instance of \n
 
 	for i := 0; i < len(arguments); i++ {
-		if arguments[i] < 32 || arguments[i] > 126 {
+		if arguments[i] < 32 || arguments[i] > 126 { //dealing with anything outside the scope of ascii characters required
 			fmt.Println("Input is not within the range of ascii characters wanted")
 			return
 		}
