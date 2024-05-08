@@ -37,8 +37,7 @@ func main() {
 
 	for scaner.Scan() {
 		lines = append(lines, scaner.Text())
-	}
-	
+	}	
 
 
 	words := strings.Split(arguments, "\\n") // splitting the arguments every instance of \n
